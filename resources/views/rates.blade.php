@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <title>My Rates | Rates</title>
-</head>
-<body>
-    <h1>Halaman Rates</h1>
-</body>
-</html>
+@extends('layouts.main')
+
+@section('container')    
+
+    @foreach ($rates as $rate)
+    <article class="mb-5">
+        <a href="/rates/{{ $rate["slug"] }}">
+            <h2>{{ $rate["title"] }}</h2>
+        </a>
+        <h3>By : {{ $rate["author"] }}</h2>
+        <h5>{{ $rate["body"] }}</h2>
+    </article>
+    @endforeach
+
+@endsection
